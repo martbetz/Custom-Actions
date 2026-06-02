@@ -1,6 +1,6 @@
 
 <p style="margin-top: -15px;">
-This repo contains my custom 'right-click' desktop actions that I use with Qterminal and PCManFM-qt as part of the LXqt desktop (I've also included links to any required dependancies). All action files should be made executable and copied to the following location:</p>
+This repo contains my custom 'right-click' desktop actions that I use with Qterminal and PCManFM-qt as part of the LXqt desktop (I've also included links to any required dependencies). All action files should be made executable and copied to the following location:</p>
 </div>
 </font>
 

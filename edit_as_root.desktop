@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Action
+Name=Edit as Root
+Icon=dialog-password
+Profiles=profile-zero;
+
+[X-Action-Profile profile-zero]
+MimeTypes=all/allfiles;
+Exec=qterminal -e "sudo nano %f"
+Name=Default profile

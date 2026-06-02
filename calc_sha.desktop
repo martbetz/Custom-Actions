@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Action
+Name=Check SHA256 Sum
+Icon=utilities-terminal
+Profiles=profile-zero
+
+[X-Action-Profile profile-zero]
+MimeTypes=all/allfiles;
+Exec=qterminal -e bash -c "sha256sum %f; echo; read -n 1 -s -r -p 'Press any key to close...'"

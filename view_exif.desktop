@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Action
+Name=View EXIF Data
+Icon=dialog-information
+MimeTypes=image/*;
+Profiles=exif_profile;
+
+[X-Action-Profile exif_profile]
+MimeTypes=image/*;
+Exec=qterminal -e sh -c "exiftool %f; echo; read -n 1 -s -r -p 'Press any key to close...'"

@@ -1,10 +1,10 @@
 [Desktop Entry]
 Type=Action
-Name=Convert to JPEG XL (cjxl)
+Name=Convert to jxl
 Icon=image-jpeg
 Profiles=profile-zero;
 
 [X-Action-Profile profile-zero]
 MimeTypes=image/*;
-Exec=qterminal -e bash -c 'for f in "$@"; do filename=$(basename "$f"); filename="${filename%%.*}"; ext="${f##*.}"; ext_low=$(echo "$ext" | tr "[:upper:]" "[:lower:]"); echo "Processing: $filename"; if [[ "$ext_low" =~ ^(png|apng|gif|jpg|jpeg)$ ]]; then cjxl "$f" "$HOME/Desktop/${filename}.jxl" 2>> "$HOME/Desktop/jxl_error.log"; elif [[ "$ext_low" =~ ^(webp)$ ]]; then tmp="$HOME/Desktop/_tmp_${filename}.png"; ffmpeg -y -i "$f" -pix_fmt rgba -c:v apng "$tmp" 2>> "$HOME/Desktop/jxl_error.log" && cjxl "$tmp" "$HOME/Desktop/${filename}.jxl" 2>> "$HOME/Desktop/jxl_error.log"; rm -f "$tmp"; else tmp="$HOME/Desktop/_tmp_${filename}.png"; ffmpeg -y -i "$f" "$tmp" 2>> "$HOME/Desktop/jxl_error.log" && cjxl "$tmp" "$HOME/Desktop/${filename}.jxl" 2>> "$HOME/Desktop/jxl_error.log"; rm -f "$tmp"; fi; echo "--------------------"; done; echo "All conversions complete!"; read -p "Press Enter to close this window..." dummy' _ %F
+Exec=qterminal -e bash -c 'for f in "$@"; do filename=$(basename "$f"); filename="${filename%%.*}"; ext="${f##*.}"; ext_low=$(echo "$ext" | tr "[:upper:]" "[:lower:]"); echo "Processing: $filename"; if [[ "$ext_low" =~ ^(png|apng|gif|jpg|jpeg)$ ]]; then cjxl "$f" "$HOME/Desktop/${filename}.jxl" 2>> "$HOME/Desktop/jxl_conv.log"; elif [[ "$ext_low" =~ ^(webp)$ ]]; then tmp="$HOME/Desktop/_tmp_${filename}.png"; ffmpeg -y -i "$f" -pix_fmt rgba -c:v apng "$tmp" 2>> "$HOME/Desktop/jxl_conv.log" && cjxl "$tmp" "$HOME/Desktop/${filename}.jxl" 2>> "$HOME/Desktop/jxl_conv.log"; rm -f "$tmp"; else tmp="$HOME/Desktop/_tmp_${filename}.png"; ffmpeg -y -i "$f" "$tmp" 2>> "$HOME/Desktop/jxl_conv.log" && cjxl "$tmp" "$HOME/Desktop/${filename}.jxl" 2>> "$HOME/Desktop/jxl_conv.log"; rm -f "$tmp"; fi; echo "--------------------"; done; echo "All conversions complete!"; read -p "Press Enter to close this window..." dummy' _ %F
 Name=Default profile

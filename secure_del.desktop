@@ -2,7 +2,6 @@
 Type=Action
 Name=Secure Delete
 Icon=edit-delete
-Tooltip=Overwrites and deletes files securely to prevent data recovery
 Profiles=shred_profile;
 
 [X-Action-Profile shred_profile]

@@ -6,4 +6,4 @@ Profiles=shred_profile;
 
 [X-Action-Profile shred_profile]
 MimeTypes=all/allfiles;
-Exec=qterminal -e bash -c "echo -n \"WARNING: This cannot be undone! Securely shred these files? (y/N): \"; read choice; if [ \"\$choice\" = \"y\" ] || [ \"\$choice\" = \"Y\" ]; then echo \"\"; shred -u -v -z %F; echo -e \"\\n[+] Shredding complete. Press Enter to close.\"; read; else echo -e \"\\n[-] Operation aborted.\"; sleep 1.5; fi"
+Exec=qterminal -e bash -c "echo -n \"WARNING: This cannot be undone! Securely shred these files? (y/N): \"; read choice; if [ \"\$choice\" = \"y\" ] || [ \"\$choice\" = \"Y\" ]; then echo \"\"; shred -u -v -z \"\$@\"; echo -e \"\\n[+] Shredding complete. Press Enter to close.\"; read; else echo -e \"\\n[-] Operation aborted.\"; sleep 1.5; fi" bash %F
